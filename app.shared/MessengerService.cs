@@ -12,7 +12,7 @@ namespace App.Shared
 
         public string GetMessage()
         {
-            return $"Hey, {Name}!";
+            return $"Hello, {Name}!";
         }
     }
 }
