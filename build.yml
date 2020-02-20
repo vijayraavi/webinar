@@ -25,5 +25,6 @@ steps:
   workingDirectory: ./app/
 - task: PublishBuildArtifacts@1
   displayName: Publish my build artifacts
-  pathToPublish: app/out
-  artifactName: distributions
+  inputs: 
+    pathToPublish: app/out
+    artifactName: distributions
