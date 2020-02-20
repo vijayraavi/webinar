@@ -1,2 +1,6 @@
+pool:
+  vmImage: ubuntu-latest
+container: mcr.microsoft.com/dotnet/core/sdk:3.1
 steps:
-- script: echo 'Hello, Webinar!'
+- script: dotnet --version
+  displayName: Check version of .NET container
