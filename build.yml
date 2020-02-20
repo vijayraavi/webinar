@@ -4,3 +4,9 @@ container: mcr.microsoft.com/dotnet/core/sdk:3.1
 steps:
 - script: dotnet --version
   displayName: Check version of .NET container
+- script: dotnet test
+  displayName: Test .NET application
+  workingDirectory: ./app.tests/
+- script: dotnet run
+  displayName: Run .NET application
+  workingDirectory: ./app/
