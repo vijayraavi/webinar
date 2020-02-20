@@ -11,20 +11,7 @@ steps:
 - script: dotnet test
   displayName: Test .NET application
   workingDirectory: ./app.tests/
-- script: dotnet run
-  displayName: Run .NET application
-  workingDirectory: ./app/
-- script: dotnet publish --configuration Release --output out/win-x64 --self-contained --runtime win-x64 /p:PublishSingleFile=true /p:IncludeSymbolsInSingleFile=true
+- script: dotnet publish --configuration Release --output out/win --self-contained --runtime win-x64 /p:PublishSingleFile=true /p:IncludeSymbolsInSingleFile=true
   displayName: Publish .NET app for Windows
   workingDirectory: ./app/
-- script: dotnet publish --configuration Release --output out/linux-x64 --self-contained --runtime linux-x64 /p:PublishSingleFile=true /p:IncludeSymbolsInSingleFile=true
-  displayName: Publish .NET app for Linux
-  workingDirectory: ./app/
-- script: dotnet publish --configuration Release --output out/osx-x64 --self-contained --runtime osx-x64 /p:PublishSingleFile=true /p:IncludeSymbolsInSingleFile=true
-  displayName: Publish .NET app for macOS
-  workingDirectory: ./app/
-- task: PublishBuildArtifacts@1
-  displayName: Publish my build artifacts
-  inputs: 
-    pathToPublish: app/out
-    artifactName: distributions
+  condition: and(always(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
